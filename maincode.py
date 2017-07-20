@@ -1,3 +1,6 @@
+# Ball movement in 2D space: An example of elastic collision and position tracking.
+
+
 import random as rnd
 import matplotlib.pyplot as plt
 import numpy as np

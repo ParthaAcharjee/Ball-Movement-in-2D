@@ -4,6 +4,7 @@
 import random as rnd
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.animation as animation
 
 class ball:
     'Ball class, store ball position and velocities'
@@ -73,12 +74,16 @@ def collisionUpdate(a,b):
 ########### End of functions ####################
 
 
-
 N=50
 b=[ball() for k in range(0,N)]
 t=0.1
 boundary=(0,100,0,100)
 CYCLE=500;
+ims=[]
+fig=plt.figure()
+ax = fig.add_axes([0, 0, 1, 1], frame_on=False)
+ax.set_xlim(-1, 101), ax.set_xticks([])
+ax.set_ylim(-1, 101), ax.set_yticks([])
 
 
 for cycle in range(0,CYCLE):
@@ -98,8 +103,16 @@ for cycle in range(0,CYCLE):
         data[k,]=b[k].x,b[k].y
     
     #data=np.append(data,[[0,0],[0,100],[100,0],[100,100]],axis=0)
-    plt.hold(False)
- 
-    plt.scatter(data[:,0],data[:,1])
-    plt.axis([-1,101,-1,101])
-    plt.pause(0.0000001)
+    #plt.hold(False)
+     
+    im=ax.scatter(data[:,0],data[:,1], animated=True, color='blue')
+    
+    ims.append([im])
+    #plt.axis([-1,101,-1,101])
+    #plt.pause(0.0000001)
+
+
+ani = animation.ArtistAnimation(fig, ims, interval=50, blit=True,
+                                repeat_delay=10)
+plt.axis([-1,101,-1,101])
+plt.show()

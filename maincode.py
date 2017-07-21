@@ -114,5 +114,4 @@ for cycle in range(0,CYCLE):
 
 ani = animation.ArtistAnimation(fig, ims, interval=50, blit=True,
                                 repeat_delay=10)
-plt.axis([-1,101,-1,101])
-plt.show()
+

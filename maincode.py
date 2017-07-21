@@ -39,7 +39,7 @@ class ball:
      
      
     def show(self):
-        print "x,y,vx,vy: ",self.x,self.y,self.vx,self.vy
+        print("x,y,vx,vy: ",self.x,self.y,self.vx,self.vy)
     
     def plot(self):
         plt.scatter(self.x,self.y)
